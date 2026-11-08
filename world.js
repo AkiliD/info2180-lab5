@@ -1,16 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const lookupBtn = document.getElementById("lookup");
+    const lookupCitiesBtn = document.getElementById("lookup-cities");
     const countryInput = document.getElementById("country");
     const resultDiv = document.getElementById("result");
 
-    lookupBtn.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        // Get and clean up the input value
-        const query = countryInput ? countryInput.value.trim() : "";
-        const url = `world.php?country=${encodeURIComponent(query)}`;
-
-        // Open an AJAX request using the Fetch API
+    function fetchData(url) {
         fetch(url)
             .then((response) => {
                 if (!response.ok) {
@@ -19,12 +13,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 return response.text();
             })
             .then((data) => {
-                // Insert the returned HTML/text into the result container
                 resultDiv.innerHTML = data;
             })
             .catch((error) => {
                 console.error("Fetch Error:", error);
                 resultDiv.innerHTML = "<p>Error retrieving country data.</p>";
             });
+    }
+
+    // Country lookup (Exercise 3 / 4)
+    lookupBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const country = countryInput.value.trim();
+        fetchData(`world.php?country=${encodeURIComponent(country)}`);
     });
+
+    // City lookup (Exercise 5)
+    lookupCitiesBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const country = countryInput.value.trim();
+        fetchData(`world.php?country=${encodeURIComponent(country)}&lookup=cities`);
+    });
+
+    
 });
