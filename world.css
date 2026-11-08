@@ -1,1 +1,135 @@
-/* Add your own styles */
+/* Layout & Page Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f2f5;
+    color: #222;
+    padding: 40px 15px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 1.85rem;
+    color: #1e293b;
+}
+
+main {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 28px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Control Bar (Label, Search Input, Button) */
+#controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#controls label {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+#controls input[type="search"] {
+    flex: 1;
+    padding: 9px 12px;
+    font-size: 0.95rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#controls input[type="search"]:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+#controls button#lookup {
+    padding: 9px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #2563eb;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#controls button#lookup:hover {
+    background-color: #1d4ed8;
+}
+
+#controls button#lookup:active {
+    background-color: #1e40af;
+}
+
+/* Results Display Area */
+#result {
+    margin-top: 22px;
+}
+
+#result p {
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Unordered list returned from world.php */
+#result ul {
+    list-style: none;
+}
+
+#result ul li {
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+#result ul li:nth-child(even) {
+    background-color: #f1f5f9;
+}
+
+/* Table formatting for later exercises */
+#result table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#result th,
+#result td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+}
+
+#result th {
+    background-color: #f1f5f9;
+    color: #334155;
+    font-weight: 700;
+}
+
+#result tr:hover {
+    background-color: #f8fafc;
+}
